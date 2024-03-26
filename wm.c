@@ -13,7 +13,7 @@ void ctrlc(int sig) {
 int main() {
 
     // DLL loader
-    HMODULE wmDll = LoadLibraryW("wm_dll");
+    HMODULE wmDll = LoadLibraryW(L"wm_dll");
     FARPROC shellProc = GetProcAddress(wmDll, "ShellProc"); 
     // get events for created & destroyed windows - IF THREAD ID IS 0, AFFECTS ALL THREADS IN THE DESKTOP
     hookHandle = SetWindowsHookExW(WH_SHELL, shellProc, wmDll, 0);
